@@ -34,10 +34,11 @@ rows,cols,ch = translated_img.shape # Get the rows, columns, and color of the ou
 # OpenCV allows us to get a affine transformation matrix by
 # providing three points on the input matrix that we want to
 # be mapped to three different points on the output matrix.
-# I decided to choose the top left corner (which should stay in the sam place),
-# the top right corner, which will move to the top right corner of the frame (371, 0),
-# and the bottom left corner, which will to a point near the bottom left corner (not
-# exactly the bottom left some of the bottom of the image has been chopped off).
+# I decided to choose the top left corner (which should stay in the same place),
+# the top right corner of the board (181, 125), which will move to the top right 
+# corner of the frame (371, 0), and the bottom left corner of the board, which will 
+# to a point near the bottom left corner (not exactly the bottom left some of 
+# the bottom of the image has been chopped off).
 pts1 = np.float32([
     [0,0],      # Top left corner
     [137,350],  # Bottom left corner
