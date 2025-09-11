@@ -35,6 +35,7 @@ for f in focal_lengths:
 
 plt.xlabel("Object distance z0 (mm)")
 plt.ylabel("Image distance zi (mm)")
+plt.title("Thin Lens Formula Visualization")
 plt.ylim(0, 3000)
 plt.legend()
 plt.grid(True, which="both", ls="--")
