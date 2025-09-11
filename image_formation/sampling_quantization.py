@@ -41,7 +41,7 @@ plt.step(
     linestyle="--",
     color="r")
 
-# Show the actual points where the quantized amplitude aligned with the continuous signal
+# Show the actual points where the quantized amplitude align with the continuous signal
 plt.scatter(t_sampled, qv, s=60, zorder=3, color="r", edgecolor="black")
 
 # Plot

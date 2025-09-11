@@ -38,6 +38,13 @@ pts2 = np.float32([
 Matrix2 = cv.getAffineTransform(pts1, pts2)
 
 # Apply the transformation:
+print(f"Applying one, all-encompassing affine transformation")
+print("------------------------------------------------------")
+print("This affine transformation matrix, as seen below, applies " \
+      "a translation of tx = +300 and ty = +60 as well as a general" \
+      "affine transformation which warps the original square into a non-square parallelogram:")
+print(Matrix2)
+print("------------------------------------------------------")
 new_img = cv.warpAffine(img, Matrix2, (1200, 1200))
 
 # Now we plot three images: The tranformed image which we
