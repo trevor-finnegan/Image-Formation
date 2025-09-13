@@ -83,7 +83,7 @@ rmse_total = rmse(sampled_signal, quantized_noisy_signal)
 psnr_total = psnr(sampled_signal, quantized_noisy_signal)
 
 # Print the error metrics
-print("============== Error metrics: ==============")
+print("===================== Error metrics: ======================")
 print(f"Noise only:      MSE={mse_noise:.6f}  RMSE={rmse_noise:.6f}  PSNR={psnr_noise:.2f} dB")
 print(f"Noise + quant.:  MSE={mse_total:.6f}  RMSE={rmse_total:.6f}  PSNR={psnr_total:.2f} dB")
 
