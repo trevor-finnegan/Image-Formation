@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 # ---------------- Parameters (same base as Ex. 3) ----------------
 signal_freq   = 5.0   # Hz
 duration      = 2.0   # seconds
-sampling_freq = 8.0   # Hz (try raising this later)
+sampling_freq = 8   # Hz (try raising this later)
 num_bits      = 3     # 3-bit uniform quantizer -> 8 levels
 min_signal    = -1.0
 max_signal    =  1.0
@@ -20,7 +20,7 @@ def original_signal(t):
 def add_gaussian_noise(signal, mean, std):
     mag = np.max(signal) - np.min(signal)
     noise = np.random.normal(mean, std * mag, size=signal.shape)
-    return signal + noise, noise
+    return signal + noise
 
 # Creates the original signal
 def create_original_signal():
@@ -61,17 +61,21 @@ def psnr(a, b):
 
 
 const_signal = create_original_signal() # Get the original signal
+t_points = np.linspace(0, duration, 1000, endpoint=False) # create x-axis values for full signal
+
+noisy_original_signal = add_gaussian_noise(const_signal, mean=noise_mean, std=noise_std) # add noise to original signal
+
 sampled_signal, t_sampled = create_sampled_signal() # Get the sampled
-noisy_signal, noise = add_gaussian_noise(sampled_signal, noise_mean, noise_std) # Add noise to the sampled signal
+noisy_sampled_signal = add_gaussian_noise(sampled_signal, noise_mean, noise_std) # Add noise to the sampled signal
 
-plt.plot(t_sampled, noisy_signal, label="Noisy Sampled Signal") # Plot the noisy sampled signal with respect to the times sampled
+plt.plot(t_points, noisy_original_signal, label="Noisy Sampled Signal") # Plot the noisy sampled signal with respect to the times sampled
 
-quantized_noisy_signal = quantize(noisy_signal) # Quantize the noisy sampled signal
+quantized_noisy_signal = quantize(noisy_sampled_signal) # Quantize the noisy sampled signal
 
 # Compute the error between the sampled signal and the sampled signal with noise
-mse_noise = mse(sampled_signal, noisy_signal)
-rmse_noise = rmse(sampled_signal, noisy_signal)
-psnr_noise = psnr(sampled_signal, noisy_signal)
+mse_noise = mse(sampled_signal, noisy_sampled_signal)
+rmse_noise = rmse(sampled_signal, noisy_sampled_signal)
+psnr_noise = psnr(sampled_signal, noisy_sampled_signal)
 
 # Compute the error between the clean sampled signal and the noisy sampled signal after quantization
 mse_total  = mse(sampled_signal, quantized_noisy_signal)
@@ -79,7 +83,7 @@ rmse_total = rmse(sampled_signal, quantized_noisy_signal)
 psnr_total = psnr(sampled_signal, quantized_noisy_signal)
 
 # Print the error metrics
-print("Error metrics")
+print("============== Error metrics: ==============")
 print(f"Noise only:      MSE={mse_noise:.6f}  RMSE={rmse_noise:.6f}  PSNR={psnr_noise:.2f} dB")
 print(f"Noise + quant.:  MSE={mse_total:.6f}  RMSE={rmse_total:.6f}  PSNR={psnr_total:.2f} dB")
 
