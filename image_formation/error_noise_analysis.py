@@ -68,7 +68,7 @@ noisy_original_signal = add_gaussian_noise(const_signal, mean=noise_mean, std=no
 sampled_signal, t_sampled = create_sampled_signal() # Get the sampled
 noisy_sampled_signal = add_gaussian_noise(sampled_signal, noise_mean, noise_std) # Add noise to the sampled signal
 
-plt.plot(t_points, noisy_original_signal, label="Noisy Sampled Signal") # Plot the noisy sampled signal with respect to the times sampled
+plt.plot(t_points, noisy_original_signal, label="Noisy Signal") # Plot the noisy sampled signal with respect to the times sampled
 
 quantized_noisy_signal = quantize(noisy_sampled_signal) # Quantize the noisy sampled signal
 
@@ -100,7 +100,7 @@ plt.scatter(t_sampled, quantized_noisy_signal, s=60, zorder=3, color="r", edgeco
 
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude")
-plt.title("Sampling and Quantization of a 5 Hz Sine")
+plt.title("Sampling and Quantization of a Noisy 5 Hz Sine")
 plt.grid(True, linestyle="--", alpha=0.4)
 plt.legend(loc="best", bbox_to_anchor=(1, 1))
 plt.tight_layout()
