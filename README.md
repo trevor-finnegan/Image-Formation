@@ -32,5 +32,6 @@ We add zero-mean Gaussian noise to the signal before quantization and report $MS
 * **Noise only**:      $MSE=0.035122$  $RMSE=0.187410$  $PSNR=14.54 dB$
 * **Noise + quant.**:  $MSE=0.040842$  $RMSE=0.202094$  $PSNR=13.89 dB$
 
-These metrics provide a scale we can use to interpret error: lower MSE/RMSE or higher PSNR means the processed signal stays closer to the reference. In real imaging systems, the same tradeoffs appear: dark environments raise noise variance, and using a lower bit sensor adds rounding error (but requires storing less data).
+These metrics provide a scale we can use to interpret error: lower MSE/RMSE or higher PSNR means the processed signal stays closer to the reference.
+
 
