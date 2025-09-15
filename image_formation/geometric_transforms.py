@@ -3,7 +3,7 @@ import cv2 as cv
 import matplotlib.pyplot as plt
 
 # Read in the original image and make sure the file exists
-img = cv.imread('..\\images\\original_image.jpg')
+img = cv.imread('images\\original_image.jpg')
 assert img is not None, "file could not be read"
 
 # Get the images rows, columns (first two values returned by img.shape)
@@ -51,7 +51,7 @@ new_img = cv.warpAffine(img, Matrix2, (1200, 1200))
 # used as input, the attempted recreation of the original
 # matrix we outputted, and the original image which we are
 # trying to replicate:
-transformed_img = cv.imread('..\\images\\transformed_image.jpg') # Read in the transformed image.
+transformed_img = cv.imread('images\\transformed_image.jpg') # Read in the transformed image.
 h, w = img.shape[:2] # Get the images height and width (needed for plotting)
 
 plt.figure(figsize=(10, 4), dpi = 100)
