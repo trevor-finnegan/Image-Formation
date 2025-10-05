@@ -35,20 +35,24 @@ if __name__ == "__main__":
     image = cv2.imread('images\\x_ray_low_contrast.jpg', cv2.IMREAD_GRAYSCALE)
     r_min, r_max = np.min(image), np.max(image)
 
+    # Calculate contrast stretched and histogram equalized images
     stretched_image = cs.contrast_stretch(image, r_min, r_max)
     equalized_image = equalize_histogram(image)
 
+    # Plot the original image
     plt.figure(figsize=(15, 4))
     plt.subplot(1, 3, 1)
     plt.title('Original Image')
     plt.imshow(image, cmap='gray')
     plt.axis('off')
 
+    # Plot the contrast stretched image
     plt.subplot(1, 3, 2)
     plt.title('Contrast Stretched')
     plt.imshow(stretched_image, cmap='gray')
     plt.axis('off')
 
+    # Plot the histogram equalized image
     plt.subplot(1, 3, 3)
     plt.title('Histogram Equalized')
     plt.imshow(equalized_image, cmap='gray')
