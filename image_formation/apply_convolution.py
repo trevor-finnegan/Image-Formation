@@ -30,5 +30,4 @@ def apply_convolution(image, filter):
                     acc += padded[i + u, j + v] * k[u, v]
             out[i, j] = acc
 
-    # Clip to [0,255] for grayscale display
-    return np.clip(out, 0, 255).astype(np.uint8)
+    return out
