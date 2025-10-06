@@ -32,8 +32,11 @@ if __name__ == "__main__":
     import matplotlib.pyplot as plt
     import cv2
 
-    image = cv2.imread('images\\x_ray_low_contrast.jpg', cv2.IMREAD_GRAYSCALE)
-    r_min, r_max = np.min(image), np.max(image)
+    image = cv2.imread('images\\tree_low_contrast.jpg', cv2.IMREAD_GRAYSCALE)
+
+    # Set r_min and r_max to 2nd and 98th percentile respectively for contrast stretching
+    # Using percentiles helps to avoid the influence of outliers (i.e. better than [0, 255])
+    r_min, r_max = np.percentile(image, 2), np.percentile(image, 98)
 
     # Calculate contrast stretched and histogram equalized images
     stretched_image = cs.contrast_stretch(image, r_min, r_max)
