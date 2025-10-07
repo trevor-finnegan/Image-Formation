@@ -77,6 +77,6 @@ The **directional detector**, which isolates edges within a narrow angular range
 
 The **Canny detector** gave the cleanest and most visually coherent edge map, with continuous edges and minimal noise. However, it was slightly conservative, missing some weaker, subtle edges that Sobel picked up.
 
-Overall, Sobel performs well with appropriate thresholding, directional detection needs refinement (e.g., combining with a magnitude threshold), and Canny remains the most robust out of the box.
+Overall, Sobel performs well with appropriate thresholding, directional detection needs refinement (e.g., combining with a magnitude threshold), and Canny remains the most robust due to OpenCV's optimization and refinement.
 
 
