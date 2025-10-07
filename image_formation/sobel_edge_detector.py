@@ -7,11 +7,11 @@ directional_edge_detector = ded.directional_edge_detector
 
 SOBEL_X = np.array([[-1, 0, 1],
                     [-2, 0, 2],
-                    [-1, 0, 1]], dtype=np.float32)  # verticle edges
+                    [-1, 0, 1]], dtype=np.float32)
 
 SOBEL_Y = np.array([[-1,-2,-1],
                     [ 0, 0, 0],
-                    [ 1, 2, 1]], dtype=np.float32)  # horizontal edges
+                    [ 1, 2, 1]], dtype=np.float32) 
 
 
 def sobel_edge_detector(img, threshold):
@@ -39,15 +39,15 @@ if __name__ == "__main__":
     import cv2
     import matplotlib.pyplot as plt
 
-    # --- load grayscale test image ---
+    # --- Load grayscale test image ---
     img = cv2.imread("images/rose_grayscale.jpg", cv2.IMREAD_GRAYSCALE)
     if img is None:
         raise FileNotFoundError("Could not read image. Check the path.")
 
-    # --- (A) Sobel magnitude only ---
+    # --- Sobel magnitude only ---
     sobel_edges = sobel_edge_detector(img, threshold=None)
 
-    # --- (B) Directional edges around 45 degrees ---
+    # --- Directional edges around 45 degrees ---
     dir_edges_45 = directional_edge_detector(img, (40, 50))
 
     # --- OpenCV Canny ---
@@ -59,6 +59,7 @@ if __name__ == "__main__":
 
     # --- Plot ---
     plt.figure(figsize=(12, 6))
+    
     # Original, Sobel, Directional, Canny
     plt.subplot(2, 2, 1); plt.title("Original"); plt.imshow(img, cmap="gray"); plt.axis("off")
     plt.subplot(2, 2, 2); plt.title(f"Sobel (threshold≈{35.5:.1f})"); plt.imshow(sobel_edges, cmap="gray", vmin=0, vmax=255); plt.axis("off")
