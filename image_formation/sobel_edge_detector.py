@@ -61,7 +61,7 @@ if __name__ == "__main__":
     plt.figure(figsize=(12, 6))
     # Original, Sobel, Directional, Canny
     plt.subplot(2, 2, 1); plt.title("Original"); plt.imshow(img, cmap="gray"); plt.axis("off")
-    plt.subplot(2, 2, 2); plt.title(f"Sobel (thr≈{14.0:.1f})"); plt.imshow(sobel_edges, cmap="gray", vmin=0, vmax=255); plt.axis("off")
+    plt.subplot(2, 2, 2); plt.title(f"Sobel (threshold≈{35.5:.1f})"); plt.imshow(sobel_edges, cmap="gray", vmin=0, vmax=255); plt.axis("off")
     plt.subplot(2, 2, 3); plt.title("Directional (≈45°)"); plt.imshow(dir_edges_45, cmap="gray", vmin=0, vmax=255); plt.axis("off")
     plt.subplot(2, 2, 4); plt.title(f"Canny ({lower},{upper})"); plt.imshow(canny_edges, cmap="gray", vmin=0, vmax=255); plt.axis("off")
     plt.tight_layout()

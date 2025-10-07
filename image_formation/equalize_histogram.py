@@ -63,4 +63,27 @@ if __name__ == "__main__":
 
     plt.tight_layout()
     plt.show()
+
+    plt.figure(figsize=(15, 4))
+
+    plt.subplot(1, 3, 1)
+    plt.title("Original Histogram")
+    plt.hist(image.flatten(), bins=256, range=[0, 255], color='black')
+    plt.xlabel("Intensity")
+    plt.ylabel("Count")
+
+    plt.subplot(1, 3, 2)
+    plt.title("Stretched Histogram")
+    plt.hist(stretched_image.flatten(), bins=256, range=[0, 255], color='black')
+    plt.xlabel("Intensity")
+    plt.ylabel("Count")
+
+    plt.subplot(1, 3, 3)
+    plt.title("Equalized Histogram")
+    plt.hist(equalized_image.flatten(), bins=256, range=[0, 255], color='black')
+    plt.xlabel("Intensity")
+    plt.ylabel("Count")
+
+    plt.tight_layout()
+    plt.show()
 	
