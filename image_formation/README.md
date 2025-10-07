@@ -61,7 +61,7 @@ Overall, contrast stretching provided controlled, visually pleasing results when
 ### Analysis
 This exercise explored the effect of **median filtering** on images corrupted with **salt-and-pepper noise**, and how this impacts gradient-based edge detection using the Sobel operator. Salt-and-pepper noise introduces isolated black and white pixels, which produce large, spurious gradient responses across the image. This is clearly seen in the “Grad (Noisy)” plot, where the gradient magnitude shows speckled noise throughout the image rather than well-defined edges.
 
-Applying a **median filter** with a $3 \times 3$ window removed most of these isolated noise spikes while preserving the main structural edges of the rose. As shown in the gradient plots, after median filtering the edge map becomes much cleaner and highlights only meaningful contours. A larger $5 \times 5$ median filter further reduces noise but slightly smooths fine edge details, as expected.
+Applying a **median filter** with a $3 \times 3$ window removed most of these isolated noise spikes while preserving the main structural edges of the rose. As shown in the gradient plots, after median filtering the edge map becomes much cleaner and highlights only meaningful edges. A larger $5 \times 5$ median filter further reduces noise but slightly smooths fine edge details, as expected.
 
 The effect is also clear quantitatively. For the **noisy image**, 1,979,961 pixels had nonzero gradient magnitude, with 95th and 99th percentile values of 86.0 and 113.0. After **median 3×3 filtering**, nonzero pixels dropped slightly to 1,924,233, and the 95th/99th percentiles dropped sharply to 11.0 and 35.0. With **median 5×5**, these values fell further to 1,776,670 (nonzero), 10.0 (95th), and 34.0 (99th).
 
