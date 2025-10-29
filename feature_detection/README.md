@@ -47,7 +47,7 @@ Each SIFT descriptor encodes the gradient structure around one keypoint as a **1
 * **Spatial cells (4×4)** preserve coarse layout within the keypoint’s local patch.
 * **Orientation bins (8 per cell)** capture how image gradients are distributed between 0° and 315°.
 
-In the black-circle test image, outer cells show one or two dominant orientations corresponding to the circle’s edges, while inner cells are much more flat and uniform. This shows that SIFT is properly recording the gradient magnitude at the edges of blobs. The descriptor forms a sort of "fingerprint” for matching features between images, which will be seen in the next part.
+In the black-circle test image, outer cells show one or two dominant orientations corresponding to the circle’s edges, while inner cells are much more flat and uniform. Cells with one or two large spikes indicate strong, directional gradients—signatures of edges or corners—whereas flatter, more uniform histograms represent smooth regions with little change in intensity. This shows that SIFT is properly recording the gradient magnitude at the edges of blobs. The descriptor forms a sort of "fingerprint” for matching features between images, which will be seen in the next part.
 
 ---
 
