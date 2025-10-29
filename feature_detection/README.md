@@ -1,6 +1,6 @@
 # Feature Detection
 
-## Blob Detection — *Part 1*
+## Blob Detection &mdash; *Part 1*
 
 ### Plot
 
@@ -12,11 +12,9 @@ Using OpenCV’s `cv.SIFT_create()`, the detector identifies distinct image regi
 
 ---
 
-## Tuning blob detection performance — *Part 2*
+## Tuning blob detection performance &mdash; *Part 2*
 
-### Plots
-
-**Tuned parameters:**
+### Plot &mdash; tuned parameters
 ![Tuned Keypoints](images/new_sift_keypoints_output.jpg)
 
 ### Analysis
@@ -36,7 +34,7 @@ The detector produced **108 keypoints**. Raising `contrastThreshold` reduces spu
 
 ---
 
-## Descriptors — *Part 3*
+## Descriptors &mdash; *Part 3*
 
 ### Visualization
 
@@ -54,7 +52,7 @@ In the black-circle test image, outer cells show dominant orientations correspon
 
 ---
 
-## Feature Matching — *Part 4*
+## Feature Matching &mdash; *Part 4*
 
 ### Plot
 
